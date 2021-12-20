@@ -8,10 +8,10 @@ public class Main {
 
         Elevator elevator = new Elevator(-3, 18);
         while (true) {
-            System.out.print("Введите номер этажа: ");
+            System.out.print("\nВведите номер этажа: ");
             int floor = new Scanner(System.in).nextInt();
             elevator.move(floor);
-            System.out.println("Current Floor - " + elevator.getCurrentFloor());
+            System.out.println("\nCurrent Floor - " + elevator.getCurrentFloor());
         }
     }
 }

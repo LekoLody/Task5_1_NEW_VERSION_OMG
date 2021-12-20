@@ -17,7 +17,7 @@ public class Elevator {
 
     public void moveDown() {
         if (currentFloor == minFloor) {
-            error();
+            stillHere();
         } else {
             currentFloor--;
         }
@@ -25,24 +25,31 @@ public class Elevator {
 
     public void moveUp() {
         if (currentFloor == maxFloor) {
-            error();
+            stillHere();
         } else {
             currentFloor++;
         }
     }
 
     public void move(int floor) {
-        if (floor >= currentFloor & floor <= maxFloor) {
+        if (floor > currentFloor & floor <= maxFloor) {
             while (floor != currentFloor)
                 moveUp();
-        } else if (floor <= currentFloor & floor >= minFloor) {
+        } else if (floor < currentFloor & floor >= minFloor) {
             while (floor != currentFloor)
                 moveDown();
-        } else error();
+        } else if (floor == currentFloor){
+            stillHere();
+        }
+        else error();
     }
 
     public void error() {
-        System.out.println("Cant do it!");
+        System.out.println("\nWrong floor!");
+    }
+
+    public void stillHere() {
+        System.out.println("\nYou are at needed floor!");
     }
 
 }
