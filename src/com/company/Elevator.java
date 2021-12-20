@@ -3,9 +3,8 @@ package com.company;
 public class Elevator {
 
     int currentFloor = 1;
-    int minFloor;
-    int maxFloor;
-    int floor;
+    private final int minFloor;
+    private final int maxFloor;
 
     public Elevator(int minFloor, int maxFloor) {
         this.minFloor = minFloor;
@@ -16,35 +15,30 @@ public class Elevator {
         return currentFloor;
     }
 
-    public int moveDown() {
+    public void moveDown() {
         if (currentFloor == minFloor) {
-            return currentFloor;
+            error();
         } else {
             currentFloor--;
         }
-        return currentFloor;
     }
 
-    public int moveUp() {
+    public void moveUp() {
         if (currentFloor == maxFloor) {
-            return currentFloor;
+            error();
         } else {
             currentFloor++;
         }
-        return currentFloor;
     }
 
-    public int move(int floor) {
+    public void move(int floor) {
         if (floor >= currentFloor & floor <= maxFloor) {
             while (floor != currentFloor)
                 moveUp();
-            return floor;
         } else if (floor <= currentFloor & floor >= minFloor) {
             while (floor != currentFloor)
                 moveDown();
-            return floor;
         } else error();
-        return floor;
     }
 
     public void error() {
